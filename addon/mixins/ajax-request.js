@@ -1,5 +1,4 @@
 import { A } from '@ember/array';
-import EmberError from '@ember/error';
 import Mixin from '@ember/object/mixin';
 import { get } from '@ember/object';
 import { isEmpty } from '@ember/utils';
@@ -300,9 +299,6 @@ export default Mixin.create({
      * to warn users when they try using `.get` to make a request
      */
     get(url) {
-        if (arguments.length > 1 || url.indexOf('/') !== -1) {
-            throw new EmberError('It seems you tried to use `.get` to make a request! Use the `.request` method instead.');
-        }
         return this._super(...arguments);
     },
     /**
